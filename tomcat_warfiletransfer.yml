@@ -1,0 +1,7 @@
+- name: myplaybook for war file transfer to tomcat hosts
+  hosts: tomcat
+  become: true
+  become_user: root
+  tasks:
+    - name: Copy War File Artifact
+      copy: src=/var/lib/jenkins/workspace/ANSPRJ-MavenBuild-WarFileTransfer/target/bookzy-0.0.1-SNAPSHOT.war dest=/tmp/apache-tomcat-8.5.72/webapps: 
