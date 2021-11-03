@@ -4,4 +4,7 @@
   become_user: root
   tasks:
     - name: Copy War File Artifact
-      copy: src=/var/lib/jenkins/workspace/ANSPRJ-MavenBuild-WarFileTransfer/target/bookzy-0.0.1-SNAPSHOT.war dest=/tmp/apache-tomcat-8.5.72/webapps/ 
+      copy: src=/var/lib/jenkins/workspace/ANSPRJ-MavenBuild-WarFileTransfer/target/bookzy-0.0.1-SNAPSHOT.war dest=/tmp/apache-tomcat-8.5.72/webapps/
+    
+    - name: Restart Tomcat
+      :shell: nohup /tmp/apache-tomcat-8.5.72/bin/startup.sh 
